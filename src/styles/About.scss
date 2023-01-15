@@ -62,4 +62,30 @@
             }
         }
     }
+    .button{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 16px;
+        gap: 10px;        
+        height: 40px;
+        border: solid 2px v.$white;
+        border-radius: 4px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        color: v.$main_black;
+        cursor: pointer;
+        div{
+            width: 24px;
+            height: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            i{
+                content: url('../utilities/icons/arrow-right.svg');
+            }
+        }
+    }
 }

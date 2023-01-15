@@ -1,5 +1,6 @@
 import React from "react";
 import '../styles/Main.scss';
+import { buttonClicked } from "../actions";
 
 const title = `It's not just about numbers,\n we know what you need`
 
@@ -22,7 +23,7 @@ const Main = () => {
                         RAG ZAKYAT INVESTMENT invests in commercial enterprises
                     </div>
                 </div>
-                <a href="#contact" className="contact">
+                <a href="#contact" className="contact" data-name="main_contactus" onClick={buttonClicked}>
                     Contact <i></i>
                 </a>
             </div>

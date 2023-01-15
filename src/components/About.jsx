@@ -1,5 +1,6 @@
 import React from "react";
 import '../styles/About.scss';
+import { buttonClicked } from "../actions";
 
 const About = () => {
     return (
@@ -15,7 +16,12 @@ const About = () => {
                     <i></i>
                 </div>
             </div>
-            
+            <div className="button" data-name="about_more" onClick={buttonClicked}>
+                Learn more 
+                <div>
+                    <i></i>
+                </div>
+            </div>
         </div>
     )
 }

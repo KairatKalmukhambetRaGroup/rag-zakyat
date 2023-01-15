@@ -2,7 +2,7 @@ import axios from "axios";
 import moment from "moment/moment";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { addVisitor } from "../actions";
+import { addVisitor, buttonClicked } from "../actions";
 import '../styles/Header.scss';
 
 const Header = () => {
@@ -63,7 +63,7 @@ const Header = () => {
                 
                 </nav>
                 <div className="buttons">
-                    <a href="#contact" className="button">Contacts</a>
+                    <a href="#contact" className="button" data-name="header_contacts" onClick={buttonClicked} >Contacts</a>
                 </div>
             </div>
         </header>

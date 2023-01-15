@@ -9,3 +9,15 @@ export const addVisitor = (formData) => async (dispatch) => {
         console.log(error)
     }
 }
+
+export const buttonClicked = async (e) => {
+    const name = e.currentTarget.dataset.name;
+    const visitor = JSON.parse(localStorage.getItem('visitor'));
+    try {
+        if(visitor && visitor._id){
+            await api.updateRate(visitor._id, {name});
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
