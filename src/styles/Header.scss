@@ -1,0 +1,70 @@
+@use './variables' as v;
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 80px;
+    width: 100vw;    
+    min-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: v.$mid_grey;
+    z-index: 1000;
+    .content{
+        width: 800px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        
+        .logo{
+            display: block;
+            height: 20px;
+            i{
+                content: url('../utilities/images/logo-small.svg');
+            }   
+        }
+        nav{   
+            display: flex;
+            gap: 24px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            li{
+                a{
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 24px;
+                    color: v.$main_black;
+                }
+                &:hover a{
+                    color: v.$main_yellow;
+                }
+            }
+        }   
+        .buttons{
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            .button{
+                display: block;
+                height: 40px;
+                background: v.$white;
+                color: v.$main_black;
+                box-sizing: border-box;
+                padding: 8px 16px;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 24px;
+                border-radius: 4px;
+                &:hover{
+                    background: v.$main_yellow;
+                    color: v.$white;
+                    box-shadow: 1px 2px 12px rgba(235, 178, 73, 0.4);
+                }
+            }
+        }
+        
+    }
+}

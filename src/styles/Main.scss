@@ -1,0 +1,91 @@
+@use './variables' as v;
+#main{
+    position: relative;
+    width: 800px;
+    height: 440px;
+    box-sizing: border-box;
+    border: 9px solid v.$white;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        .text{
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+            .title{
+                font-weight: 700;
+                font-size: 42px;
+                line-height: 56px;
+                text-align: center;
+
+                color: v.$main_black;
+            }
+            .description{
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 32px;
+                text-align: center;
+
+                color: v.$main_black;
+            }
+        }
+        .contact{
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+            align-items: center;
+            justify-content: center;
+            height: 48px;
+
+            padding: 0 32px;
+            background: v.$main_yellow;
+            
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+            color: v.$white;
+
+            border: 2px solid #EBB249;
+            box-shadow: 0px 0px 16px rgba(235, 178, 73, 0.4);
+            border-radius: 4px;
+
+            i{
+                content: url('../utilities/icons/circle-double-down.svg');
+            }
+        }
+    }
+
+    #illustrations{
+        .tl{
+            position: absolute;
+            left: -193px;
+            top: -77px;
+            content: url('../utilities/images/main-tl.svg');
+        }
+        .tr{
+            position: absolute;
+            right: -214.5px;
+            top: -73px;
+            content: url('../utilities/images/main-tr.svg');
+        }
+        .bl{
+            position: absolute;
+            left: -181px;
+            bottom: -47px;
+            content: url('../utilities/images/main-bl.svg');
+        }
+        .br{
+            position: absolute;
+            right: -293px;
+            bottom: -18px;
+            content: url('../utilities/images/main-br.svg');
+        }
+    }
+}

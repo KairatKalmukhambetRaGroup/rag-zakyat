@@ -1,0 +1,133 @@
+@use './variables' as v;
+
+#values{
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    .cell{
+        background: v.$white;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 48px;
+        box-sizing: border-box;
+        border-radius: 8px;
+        gap: 32px;
+        .subtitle{
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 32px;
+            color: v.$main_yellow;
+        }
+        .text{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0px;
+            gap: 16px;
+            .title{
+                font-weight: 700;
+                font-size: 36px;
+                line-height: 48px;
+                color: v.$black;
+            }
+            .description{
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 32px;
+                color: v.$dark_grey;            
+            }
+            .hidden-description{
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+                color: v.$dark_grey;
+            }
+        }
+        .button{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 0px 16px;
+            gap: 10px;        
+            height: 40px;
+            background: v.$light_grey;
+            border-radius: 4px;
+            cursor: pointer;
+            div{
+                width: 24px;
+                height: 24px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                i{
+                    content: url('../utilities/icons/arrow-down-black.svg');
+                }
+            }
+            &.up div i{
+                    content: url('../utilities/icons/arrow-up-black.svg');
+                }
+        }
+        &.second{
+            background: v.$black;
+            .title{
+                color: v.$golden;
+            }
+            .description{
+                color: v.$darker_white;
+            }
+            .hidden-description{
+                color: v.$darker_white;
+                font-size: 20px;
+                line-height: 32px;
+            }
+            .button{
+                background: none;
+                border: 1px solid v.$light_grey;
+                color: white;
+                border-radius: 4px;
+                i{
+                    content: url('../utilities/icons/arrow-down-white.svg');
+                }
+                &.up i{
+                    content: url('../utilities/icons/arrow-up-white.svg');
+                }
+            }
+
+            .info{
+                display: flex;
+                flex-direction: row;
+                align-items: flex-end;
+                padding: 0px;
+                gap: 16px;
+                justify-content: space-between;
+                .descriptions{
+                    width: 440px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    padding: 0px;
+                    gap: 16px;
+                }
+                .illustration{
+                    display: block;
+                    position: relative;
+                    min-height: 100%;
+                    i{
+                        position: absolute;
+                        bottom: -11px;
+                        content: url('../utilities/images/gold-tenge.png');
+                    }
+                    &.cropped{
+                        i{
+                            bottom: -100px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

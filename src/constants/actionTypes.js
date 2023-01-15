@@ -1,0 +1,1 @@
+export const ADD_VISITOR = 'ADD_VISITOR';
