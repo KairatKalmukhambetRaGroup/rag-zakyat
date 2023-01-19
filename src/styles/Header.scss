@@ -1,17 +1,20 @@
 @use './variables' as v;
+@import './adaptive';
 header{
     position: fixed;
     top: 0;
     left: 0;
-    height: 80px;
     width: 100vw;    
     min-width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: v.$mid_grey;
+    box-sizing: border-box;
     z-index: 1000;
     .content{
+        background: v.$mid_grey;
+        z-index: 1000;
+        padding: 24px;
         width: 800px;
         display: flex;
         justify-content: space-between;
@@ -21,17 +24,52 @@ header{
         .logo{
             display: block;
             height: 20px;
+            cursor: pointer;
             i{
                 content: url('../utilities/images/logo-small.svg');
             }   
         }
         nav{   
+            display: none;
+        }   
+        .buttons{
+            display: none;
+        }
+        .hamburger{
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            i{
+                content: url('../utilities/icons/menuH-hambuger-icon.svg');
+            }
+            &.active i{
+                content: url('../utilities/icons/close-icon.svg');
+            }
+        }
+    }
+    .menu{
+        // display: none;
+        position: fixed;
+        top: -100vh;
+        left: 0;
+        z-index: 900;
+        display: block;
+        background: v.$mid_grey;
+        width: 100vw;
+        height: 100vh;
+        padding: 24px;
+        padding-top: 80px;
+        box-sizing: border-box;
+        nav{   
             display: flex;
-            gap: 24px;
+            flex-direction: column;
+            gap: 16px;
             margin: 0;
             padding: 0;
             list-style: none;
             li{
+                padding-bottom: 8px;
+                border-bottom: 1px solid v.$grey;
                 a{
                     font-weight: 500;
                     font-size: 16px;
@@ -41,12 +79,15 @@ header{
                 &:hover a{
                     color: v.$main_yellow;
                 }
+                &:last-of-type{
+                    border: none;
+                }
             }
         }   
         .buttons{
+            padding-top: 16px;
             display: flex;
             align-items: center;
-            gap: 24px;
             .button{
                 display: block;
                 height: 40px;
@@ -65,6 +106,89 @@ header{
                 }
             }
         }
-        
+        transition: top .2s ease-in;
+        &.active{
+            top: 0;
+        }
+    }
+
+    @include _lg{
+        padding: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 80px;
+        width: 100vw;    
+        min-width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: v.$mid_grey;
+        z-index: 1000;
+        .content{
+            padding: 0;
+            width: 800px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            
+            .logo{
+                display: block;
+                height: 20px;
+                i{
+                    content: url('../utilities/images/logo-small.svg');
+                }   
+            }
+            nav{   
+                display: flex;
+                gap: 24px;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                li{
+                    a{
+                        font-weight: 500;
+                        font-size: 16px;
+                        line-height: 24px;
+                        color: v.$main_black;
+                    }
+                    &:hover a{
+                        color: v.$main_yellow;
+                    }
+                }
+            }   
+            .buttons{
+                display: flex;
+                align-items: center;
+                gap: 24px;
+                .button{
+                    display: block;
+                    height: 40px;
+                    background: v.$white;
+                    color: v.$main_black;
+                    box-sizing: border-box;
+                    padding: 8px 16px;
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 24px;
+                    border-radius: 4px;
+                    &:hover{
+                        background: v.$main_yellow;
+                        color: v.$white;
+                        box-shadow: 1px 2px 12px rgba(235, 178, 73, 0.4);
+                    }
+                }
+            }
+            .hamburger{
+                display: none;
+            }
+        }
+        .menu{
+            display: none;
+            &.active{
+                display: none;
+            }
+        }
     }
 }

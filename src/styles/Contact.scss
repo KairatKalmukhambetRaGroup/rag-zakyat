@@ -1,22 +1,23 @@
 @use './variables' as v;
-
+@import './adaptive';
 #contact{
-    width: 800px;
+    scroll-margin-top: 96px;
+    width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-end;
     padding: 0px;
     gap: 24px;
-    align-items: stretch;
     .content{
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding: 48px;
+        box-sizing: border-box;
+        padding: 24px;
         gap: 32px;
         background: v.$white;
         border-radius: 8px;
-        flex-grow: 1;
+        width: 100%;
         .subtitle{
             font-weight: 600;
             font-size: 20px;
@@ -25,8 +26,8 @@
         }
         .phone-number{
             font-weight: 700;
-            font-size: 36px;
-            line-height: 48px;
+            font-size: 24px;
+            line-height: 32px;
             color: v.$black;
         }
         .text{
@@ -37,14 +38,14 @@
             gap: 4px;
             .title{
                 font-weight: 400;
-                font-size: 20px;
-                line-height: 32px;
+                font-size: 16px;
+                line-height: 24px;
                 color: #969696;
             }
             a{
                 font-weight: 400;
-                font-size: 20px;
-                line-height: 32px;
+                font-size: 16px;
+                line-height: 24px;
                 color: v.$main_black;                
             }
         }
@@ -53,12 +54,46 @@
     .map{
         display: block;
         box-sizing: border-box;
-        width: 284px;
+        width: 100%;
+        height: 240px;
         border-radius: 8px;
         border: solid 10px v.$white;
+        z-index: 100;
         .map-content{
+        z-index: 100;
+
             width: 100%;
             height: 100%;
+        }
+    }
+
+    @include _lg{
+        width: 800px;
+        flex-direction: row;
+        align-items: stretch;
+        .content{
+            padding: 48px;
+            flex-grow: 1;
+            width: auto;
+            .phone-number{
+                font-size: 36px;
+                line-height: 48px;
+            }
+            .text{
+                .title{
+                    font-size: 20px;
+                    line-height: 32px;
+                }
+                a{
+                    font-size: 20px;
+                    line-height: 32px;
+                }
+            }
+
+        }
+        .map{
+            width: 284px;
+            height: auto;
         }
     }
 }

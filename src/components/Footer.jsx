@@ -6,7 +6,9 @@ const Footer = () => {
     return (
         <footer>
             <div className="content">
-                <div className="logo">
+                <div className="logo" onClick={() => {
+                    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+                }}>
                     <i></i>
                 </div>
                 <div className="text">© RAG ZAKYAT Investment 2022</div>

@@ -1,15 +1,17 @@
 @use './variables' as v;
+@import './adaptive';
 
 #about{
+    scroll-margin-top: 96px;
     background: v.$grey;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 48px;
+    padding: 24px;
     gap: 32px;
 
     box-sizing: border-box;
-    width: 800px;
+    width: 100%;
 
     border-radius: 8px;
 
@@ -21,7 +23,7 @@
     }
     .info{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: flex-start;
         padding: 0px;
         gap: 32px;
@@ -30,23 +32,24 @@
             flex-direction: column;
             align-items: flex-start;
             padding: 0px;
-            gap: 16px;
+            gap: 32px;
             .title{
                 font-weight: 700;
-                font-size: 36px;
-                line-height: 48px;
+                font-size: 24px;
+                line-height: 32px;
                 color: v.$black;
             }
             .description{
                 font-weight: 400;
-                font-size: 20px;
-                line-height: 32px;
+                font-size: 16px;
+                line-height: 24px;
                 color: v.$dark_grey;
             }
             .bottom{
+                margin-top: -16px;
                 font-weight: 400;
-                font-size: 20px;
-                line-height: 32px;
+                font-size: 16px;
+                line-height: 24px;
                 color: v.$main_black;
             }
         }
@@ -54,11 +57,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 96px;
-            min-width: 96px;
-            padding: 14px 0;
+            width: 100%;
+            padding: 0;
             i{
-                content: url('../utilities/images/it-projects.svg');
+                content: url('../utilities/images/it-projects-horizontal.svg');
             }
         }
     }
@@ -87,5 +89,55 @@
                 content: url('../utilities/icons/arrow-right.svg');
             }
         }
+    }
+    @include _lg{
+        padding: 48px;
+        margin-top: 0;
+        width: 800px;
+        animation: transition 2s;
+        .info{
+            flex-direction: row;
+            padding: 0px;
+            .text{
+                gap: 16px;
+                .title{
+                    font-size: 36px;
+                    line-height: 48px;
+                }
+                .description{
+                    font-size: 20px;
+                    line-height: 32px;
+                }
+                .bottom{
+                    margin: 0;
+                    font-size: 20px;
+                    line-height: 32px;
+                }
+            }
+            .illustration{
+                width: 96px;
+                min-width: 96px;
+                padding: 14px 0;
+                i{
+                    content: url('../utilities/images/it-projects.svg');
+                }
+            }
+        }
+    }
+}
+
+
+@keyframes transition{
+    0% {
+        margin-top: 100vh;
+    }
+    50%{
+        margin-top: 100vh;
+    }
+    90%{
+        margin-top: -48px;
+    }
+    100%{
+        margin-top: 0;
     }
 }

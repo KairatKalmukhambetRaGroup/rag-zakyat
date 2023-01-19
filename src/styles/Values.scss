@@ -1,17 +1,20 @@
 @use './variables' as v;
+@import './adaptive';
 
 #values{
-    width: 800px;
+    scroll-margin-top: 96px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 32px;
     .cell{
+        width: 100%;
         background: v.$white;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding: 48px;
+        padding: 24px;
         box-sizing: border-box;
         border-radius: 8px;
         gap: 32px;
@@ -29,17 +32,11 @@
             gap: 16px;
             .title{
                 font-weight: 700;
-                font-size: 36px;
-                line-height: 48px;
+                font-size: 24px;
+                line-height: 32px;
                 color: v.$black;
             }
-            .description{
-                font-weight: 400;
-                font-size: 20px;
-                line-height: 32px;
-                color: v.$dark_grey;            
-            }
-            .hidden-description{
+            .description, .hidden-description{
                 font-weight: 400;
                 font-size: 16px;
                 line-height: 24px;
@@ -56,6 +53,9 @@
             height: 40px;
             background: v.$light_grey;
             border-radius: 4px;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
             cursor: pointer;
             div{
                 width: 24px;
@@ -73,6 +73,9 @@
         }
         &.second{
             background: v.$black;
+            .subtitle{
+                color: #969696;
+            }
             .title{
                 color: v.$golden;
             }
@@ -81,8 +84,6 @@
             }
             .hidden-description{
                 color: v.$darker_white;
-                font-size: 20px;
-                line-height: 32px;
             }
             .button{
                 background: none;
@@ -99,13 +100,12 @@
 
             .info{
                 display: flex;
-                flex-direction: row;
-                align-items: flex-end;
+                flex-direction: column;
+                align-items: flex-start;
                 padding: 0px;
                 gap: 16px;
-                justify-content: space-between;
                 .descriptions{
-                    width: 440px;
+                    width: 100%;
                     display: flex;
                     flex-direction: column;
                     align-items: flex-start;
@@ -113,17 +113,59 @@
                     gap: 16px;
                 }
                 .illustration{
-                    display: block;
-                    position: relative;
-                    min-height: 100%;
+                    min-height: 270px;
                     i{
-                        position: absolute;
-                        bottom: -11px;
                         content: url('../utilities/images/gold-tenge.png');
                     }
-                    &.cropped{
+                }
+            }
+        }
+    }
+    @include _lg{
+        width: 800px;
+        .cell{
+            padding: 48px;
+            .subtitle{
+                font-weight: 600;
+                font-size: 20px;
+                line-height: 32px;
+                color: v.$main_yellow;
+            }
+            .text{
+                padding: 0px;
+                .title{
+                    font-size: 36px;
+                    line-height: 48px;
+                }
+                .description{
+                    font-size: 20px;
+                    line-height: 32px;
+                }
+            }
+            &.second{
+                .hidden-description{
+                    font-size: 20px;
+                    line-height: 32px;
+                }
+                .info{
+                    align-items: flex-end;
+                    justify-content: space-between;
+                    .descriptions{
+                        width: 440px;
+                    }
+                    .illustration{
+                        display: block;
+                        position: relative;
+                        min-height: 100%;
                         i{
-                            bottom: -100px;
+                            position: absolute;
+                            bottom: -11px;
+                            content: url('../utilities/images/gold-tenge.png');
+                        }
+                        &.cropped{
+                            i{
+                                bottom: -100px;
+                            }
                         }
                     }
                 }

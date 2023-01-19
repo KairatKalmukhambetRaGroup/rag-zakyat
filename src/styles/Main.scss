@@ -1,8 +1,8 @@
 @use './variables' as v;
+@import './adaptive';
 #main{
-    position: relative;
-    width: 800px;
-    height: 440px;
+    width: 100%;
+    padding: 39px 15px;
     box-sizing: border-box;
     border: 9px solid v.$white;
     border-radius: 8px;
@@ -21,16 +21,15 @@
             align-items: center;
             .title{
                 font-weight: 700;
-                font-size: 42px;
-                line-height: 56px;
+                font-size: 24px;
+                line-height: 32px;
                 text-align: center;
-
                 color: v.$main_black;
             }
             .description{
                 font-weight: 500;
-                font-size: 20px;
-                line-height: 32px;
+                font-size: 16px;
+                line-height: 24px;
                 text-align: center;
 
                 color: v.$main_black;
@@ -63,29 +62,98 @@
     }
 
     #illustrations{
-        .tl{
-            position: absolute;
-            left: -193px;
-            top: -77px;
-            content: url('../utilities/images/main-tl.svg');
+        display: none;
+    }
+
+    @include _lg{
+        position: relative;
+        width: 800px;
+        height: 440px;
+        .content{
+            .text{
+                .title{
+                    font-size: 42px;
+                    line-height: 56px;    
+                }
+                .description{
+                    font-size: 20px;
+                    line-height: 32px;    
+                }
+            }
         }
-        .tr{
-            position: absolute;
-            right: -214.5px;
-            top: -73px;
-            content: url('../utilities/images/main-tr.svg');
+    
+        #illustrations{
+            display: block;
+            .tl{
+                position: absolute;
+                left: -193px;
+                top: -77px;
+                animation: tlTransition 1s;
+                content: url('../utilities/images/main-tl.svg');
+            }
+            .tr{
+                position: absolute;
+                right: -214.5px;
+                top: -73px;
+                animation: trTransition 1s;
+                content: url('../utilities/images/main-tr.svg');
+            }
+            .bl{
+                position: absolute;
+                left: -181px;
+                bottom: -47px;
+                animation: blTransition 1s;
+                content: url('../utilities/images/main-bl.svg');
+            }
+            .br{
+                position: absolute;
+                right: -293px;
+                bottom: -18px;
+                animation: brTransition 1s;
+                content: url('../utilities/images/main-br.svg');
+            }
         }
-        .bl{
-            position: absolute;
-            left: -181px;
-            bottom: -47px;
-            content: url('../utilities/images/main-bl.svg');
-        }
-        .br{
-            position: absolute;
-            right: -293px;
-            bottom: -18px;
-            content: url('../utilities/images/main-br.svg');
-        }
+    }
+}
+
+
+@keyframes tlTransition{
+    from{
+        left: -500px;
+        top: -200px;
+    }
+    to{
+        left: -193px;
+        top: -77px;
+    }
+}
+@keyframes trTransition{
+    from{
+        right: -551px;
+        top: -200px;
+    }
+    to{
+        right: -214.5px;
+        top: -73px;
+    }
+}
+@keyframes blTransition{
+    from{
+        left: -490px;
+        bottom: -150px;
+    }
+    to{
+        left: -181px;
+        bottom: -47px;
+    }
+}
+@keyframes brTransition{
+    from{
+        right: -552px;
+        bottom: -120px;
+    }
+    to{
+        right: -293px;
+        bottom: -18px;
     }
 }

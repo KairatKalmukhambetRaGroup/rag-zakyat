@@ -1,16 +1,18 @@
 @use './variables' as v;
+@import './adaptive';
 #manager{
+    scroll-margin-top: 96px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
     gap: 32px;
-    width: 800px;
+    width: 100%;
     .cell{
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding: 48px;
+        padding: 24px;
         background: v.$white;
         border-radius: 8px;
         width: 100%;
@@ -25,8 +27,8 @@
             }
             .info{
                 display: flex;
-                flex-direction: row;
-                align-items: flex-end;
+                flex-direction: column;
+                align-items: flex-start;
                 padding: 0px;
                 gap: 32px;
                 .text{
@@ -35,22 +37,22 @@
                     align-items: flex-start;
                     padding: 0px;
                     gap: 16px;
-                    width: 432px;
+                    width: 100%;
                     .title{
                         font-weight: 700;
-                        font-size: 36px;
-                        line-height: 48px;                        
+                        font-size: 24px;
+                        line-height: 32px;                        
                         color: v.$black;
                     }
                     .description{
                         font-weight: 400;
-                        font-size: 20px;
-                        line-height: 32px;
+                        font-size: 16px;
+                        line-height: 24px;
                         color: v.$dark_grey;
                     }
                 }
                 .illustration{
-                    width: 240px;
+                    max-width: 240px;
                     i{
                         content: url('../utilities/images/general-manager.png');
                     }
@@ -86,13 +88,15 @@
                     }
                     .description{
                         font-weight: 400;
+                        font-size: 16px;
+                        line-height: 24px;
                     }
                 }
             }
             .description{
                 font-weight: 400;
-                font-size: 20px;
-                line-height: 32px;
+                font-size: 16px;
+                line-height: 24px;
                 color: v.$dark_grey;
             }
         }
@@ -106,38 +110,36 @@
             }
             .items{
                 display: flex;
-                flex-direction: row;
-                align-items: flex-end;
+                flex-direction: column;
                 padding: 0px;
-                gap: 16px;
+                gap: 24px;
                 width: 100%;
                 .item{
                     display: flex;
                     flex-direction: column;
-                    align-items: flex-start;
+                    align-items: center;
                     padding: 0px;
                     gap: 8px;
-                    width: calc(50% - 8px);
                     .number{
                         font-weight: 700;
                         font-size: 48px;
                         line-height: 56px;
                         color: #607DE6;
-                        padding-bottom: 8px;
                         border-bottom: 2px solid rgba(96, 125, 229, 0.4);                      
                     }
                     .text{
                         font-weight: 500;
-                        font-size: 20px;
-                        line-height: 32px;
+                        font-size: 16px;
+                        line-height: 24px;
                         color: #141414;
+                        text-align: center;
                     }
                 }
             }
         }
     }
     .partners{
-        width: 800px;
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -152,20 +154,21 @@
         .cards{
             width: 100%;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             align-items: flex-start;
             padding: 0px;
             gap: 24px;
             .card{
+                width: 100%;
                 box-sizing: border-box;
-                padding: 40px 48px;
-                height: 130px;
+                padding: 36px 24px;
+                // height: 130px;
                 background: v.$white;
                 border: 1px solid #E7E7E7;
                 border-radius: 8px;
                 display: flex;
-                // justify-content: center;
                 align-items: center;
+                justify-content: center;
                 cursor: pointer;
                 .content{
                     display: none;
@@ -180,14 +183,12 @@
                     }
                     .description{
                         font-weight: 400;
-                        font-size: 20px;
-                        line-height: 32px;
+                        font-size: 16px;
+                        line-height: 24px;
                     }
                 }
                 transition: all .5s linear;
                 &.active{
-                    padding: 30px 48px;
-                    flex-grow: 1;
                     .content{
                         display: flex;
                     }
@@ -218,6 +219,95 @@
                     }
                 }                
 
+            }
+        }
+    }
+    @include _lg{
+        .cell{
+            padding: 48px;
+            &.general-manager{
+                .info{
+                    flex-direction: row;
+                    align-items: flex-end;
+                    .text{
+                        width: 432px;
+                        .title{
+                            font-size: 36px;
+                            line-height: 48px;                        
+                        }
+                        .description{
+                            font-size: 20px;
+                            line-height: 32px;
+                        }
+                    }
+                    .illustration{
+                        width: 240px;
+                        i{
+                            content: url('../utilities/images/general-manager.png');
+                        }
+                    }
+                }
+            }
+            &.experience{
+                .subtitle{
+                    font-weight: 600;
+                    font-size: 20px;
+                    line-height: 32px;
+                    color: #969696;
+                }
+                .tabs{
+                    .tab{
+                        .description{
+                            font-size: 20px;
+                            line-height: 32px;
+                        }
+                    }
+                }
+                .description{
+                    font-size: 20px;
+                    line-height: 32px;
+                }
+            }
+            &.team-and-projects{
+                gap: 24px;
+                .items{
+                    flex-direction: row;
+                    align-items: flex-end;
+                    gap: 16px;
+                    .item{
+                        align-items: flex-start;
+                        width: calc(50% - 8px);
+                        .text{
+                            font-size: 20px;
+                            line-height: 32px;
+                            text-align: initial;
+                        }
+                    }
+                }
+            }
+        }
+        .partners{
+            width: 800px;
+            .cards{
+                flex-direction: row;
+                .card{
+                    width: auto;
+                    height: 130px;
+                    padding: 40px 48px;
+
+                    .content{                        
+                        .description{
+                            font-size: 20px;
+                            line-height: 32px;
+                        }
+                    }
+                    transition: all .5s linear;
+                    &.active{
+                        padding: 30px 48px;
+                        flex-grow: 1;
+                    }            
+
+                }
             }
         }
     }

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -8,6 +9,7 @@ import Values from "./components/Values";
 import './styles/index.scss';
 
 const App = () => {
+    
     return (
         <>
             <Header />
