@@ -87,7 +87,9 @@ header{
         .buttons{
             padding-top: 16px;
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
             .button{
                 display: block;
                 height: 40px;
@@ -104,6 +106,19 @@ header{
                     color: v.$white;
                     box-shadow: 1px 2px 12px rgba(235, 178, 73, 0.4);
                 }
+            }
+            .lang{
+                cursor: pointer;
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 16px;
+                padding: 2px 0 1px;
+                border-bottom: 1px solid v.$main_yellow;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                // text-decoration-line: underline;
+                color: v.$main_yellow;
             }
         }
         transition: top .2s ease-in;

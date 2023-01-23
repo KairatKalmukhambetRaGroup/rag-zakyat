@@ -114,6 +114,8 @@ const Header = () => {
                 </nav>
                 <div className="buttons">
                     <a href="#contact" className="button" data-name="header_contacts" onClick={(e)=>{toggleMenu(e); buttonClicked(e);}} >{t('header.contacts')}</a>
+                    <div className="lang" onClick={(e)=>{toggleMenu(e); changeLanguage(e)}} data-lang={lang==='en' ? 'ru' : 'en'}>{lang==='en' ? 'EN' : 'RU'}</div>
+                
                 </div>
             </div>
         </header>
