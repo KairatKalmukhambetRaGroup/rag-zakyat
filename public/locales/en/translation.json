@@ -1,0 +1,79 @@
+{
+    "header": {
+        "about": "About us",
+        "values": "Our values",
+        "manager": "General Manager",
+        "contacts": "Contacts"
+    },
+    "main":{
+        "title": "It's not just about numbers,\n we know what you need",
+        "description":"RAG ZAKYAT INVESTMENT invests in commercial enterprises",
+        "contact": "Contact"
+    },
+    "about":{
+        "subtitle": "About us",
+        "title": "We are interested in IT projects at different stages",
+        "description": "For example, such as start-ups or projects looking for \"angel\" investors before buying existing products with production.",
+        "bottom": "RAG ZAKYAT INVESTMENT - FZCO follows a model that will provide high financial, social and environmental returns on cash investments by securing rights through its three-link strategy.",
+        "more": "Learn more"
+    },
+    "values": {
+        "subtitle": "Our values",
+        "more": "Read more",
+        "hide": "Hide",
+        "first": {
+            "title": "Diverse investments and the pursuit of long-term results",
+            "description": "Our company focuses on ideas and projects aimed at simplifying, automating and improving the daily life of an individual, a group of people, a company, a city or a country.",
+            "hidden": "And on the pursuit of successful projects for the benefit of all the people and communities in which she works."
+        },
+        "second": {
+            "title": "Investing for growth and a disciplined approach",
+            "description": "We are committed to identifying and generating niche investment opportunities.",
+            "hidden": "Our investment decisions are based on industry expertise, intellectual research, discipline and a consistent focus on generating consistent profitable returns."
+        }
+    },
+    "manager": {
+        "subtitle": "General Manager",
+        "title": "Madina Adambayeva",
+        "description" : "The CEO of RAG ZAKYAT INVESTMENT - FZCO has years of experience in IT infrastructure and operations with extensive knowledge of IT service management, product development, corporate finance and digital marketing."
+    },
+    "experience": {
+        "subtitle": "Experience",
+        "description" : "Madina holds a Master of Arts in Finance from KIMEP University and a Bachelor of Engineering in Information Systems from Suleiman Demirel University.",
+        "first":{
+            "title": "Synesis (Minsk) ",
+            "description": "in the development team of the product"
+        },
+        "second":{
+            "title": "In digital marketing companies, mining national companies"
+        },
+        "third":{
+            "title": "At Citi Bank",
+            "description": "in the development team of the product"
+        }
+    },
+    "projects": {
+        "subtitle": "Our team and projects",
+        "people_in_team": "people in a team",
+        "closed_projects": "successfully closed projects"
+    },
+    "partners": {
+        "title": "Partners",
+        "rag_mirsot": {
+            "title": "RAG Mirsot",
+            "description": "Consulting services in various industries"
+        },
+        "ra_group": {
+            "title": "RA Group",
+            "description": "IT product development company"
+        }
+    },
+    "contacts": {
+        "subtitle": "Contacts",
+        "email": "Email",
+        "location": {
+            "title": "Location",
+            "content": "119-C, IFZA Building A3, Dubai Silicon Oasis, Dubai, UAE"
+        }
+    }
+}

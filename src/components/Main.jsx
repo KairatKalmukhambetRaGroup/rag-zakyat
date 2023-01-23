@@ -1,10 +1,11 @@
 import React from "react";
 import '../styles/Main.scss';
 import { buttonClicked } from "../actions";
+import { useTranslation } from "react-i18next";
 
-const title = `It's not just about numbers,\n we know what you need`
 
 const Main = () => {
+    const {t, i18n} = useTranslation();
     return (
         <div id="main">
             <div id="illustrations">
@@ -17,14 +18,15 @@ const Main = () => {
             <div className="content">
                 <div className="text">
                     <div className="title">
-                        {title}
+                        {t('main.title')}
                     </div>
                     <div className="description">
-                        RAG ZAKYAT INVESTMENT invests in commercial enterprises
+                        {t('main.description')}
                     </div>
                 </div>
                 <a href="#contact" className="contact" data-name="main_contactus" onClick={buttonClicked}>
-                    Contact <i></i>
+                    {t('main.contact')}
+                     <i></i>
                 </a>
             </div>
         </div>

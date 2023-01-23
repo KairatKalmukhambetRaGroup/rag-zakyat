@@ -2,6 +2,7 @@ import axios from "axios";
 import moment from "moment/moment";
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { addVisitor, buttonClicked } from "../actions";
 import '../styles/Header.scss';
@@ -11,6 +12,9 @@ const Header = () => {
     const visitor = JSON.parse(localStorage.getItem('visitor'));
     const [showMenu, setShowMenu] = useState(false);
 
+    
+    const {t, i18n} = useTranslation();
+    const [lang, setLang] = useState(i18n.language)
 
     const saveVisitor = async () => {
         const res = await axios.get('https://geolocation-db.com/json/');
@@ -60,6 +64,13 @@ const Header = () => {
         }
     }, [showMenu])
 
+
+    const changeLanguage = (e) => {
+        const l = e.currentTarget.dataset.lang;
+        setLang(l);
+        i18n.changeLanguage(l);
+    }
+
     return (
         <header>
             <div className="content">
@@ -71,18 +82,19 @@ const Header = () => {
                 </a>
                 <nav>
                     <li>
-                        <a href="#about">About us</a>
+                        <a href="#about">{t('header.about')}</a>
                     </li>
                     <li>
-                        <a href="#values">Our values</a>
+                        <a href="#values">{t('header.values')}</a>
                     </li>
                     <li>
-                        <a href="#manager">General Manager</a>
+                        <a href="#manager">{t('header.manager')}</a>
                     </li>
                 
                 </nav>
                 <div className="buttons">
-                    <a href="#contact" className="button" data-name="header_contacts" onClick={buttonClicked} >Contacts</a>
+                    <a href="#contact" className="button" data-name="header_contacts" onClick={buttonClicked} >{t('header.contacts')}</a>
+                    <div className="lang" onClick={changeLanguage} data-lang={lang==='en' ? 'ru' : 'en'}>{lang==='en' ? 'EN' : 'RU'}</div>
                 </div>
                 <div className={`hamburger ${showMenu ? 'active' : ''}`} onClick={toggleMenu}>
                     <i></i>
@@ -91,17 +103,17 @@ const Header = () => {
             <div className={`menu ${showMenu ? 'active' : ''}`}>
                 <nav>
                     <li>
-                        <a href="#about" onClick={toggleMenu}>About us</a>
+                        <a href="#about" onClick={toggleMenu}>{t('header.about')}</a>
                     </li>
                     <li>
-                        <a href="#values" onClick={toggleMenu}>Our values</a>
+                        <a href="#values" onClick={toggleMenu}>{t('header.values')}</a>
                     </li>
                     <li>
-                        <a href="#manager" onClick={toggleMenu}>General Manager</a>
+                        <a href="#manager" onClick={toggleMenu}>{t('header.manager')}</a>
                     </li>            
                 </nav>
                 <div className="buttons">
-                    <a href="#contact" className="button" data-name="header_contacts" onClick={(e)=>{toggleMenu(e); buttonClicked(e);}} >Contacts</a>
+                    <a href="#contact" className="button" data-name="header_contacts" onClick={(e)=>{toggleMenu(e); buttonClicked(e);}} >{t('header.contacts')}</a>
                 </div>
             </div>
         </header>
