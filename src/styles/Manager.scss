@@ -151,74 +151,62 @@
             line-height: 32px;
             color: v.$main_black;
         }
-        .cards{
+        .wrapper{
             width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            padding: 0px;
-            gap: 24px;
-            .card{
+        }
+        .scroller{
+            display: block;
+            width: 100%;
+            .cards{
                 width: 100%;
-                box-sizing: border-box;
-                padding: 36px 24px;
-                // height: 130px;
-                background: v.$white;
-                border: 1px solid #E7E7E7;
-                border-radius: 8px;
                 display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                .content{
-                    display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0px;
+                gap: 24px;
+                .card{
+                    *{
+                        text-decoration: none;
+                        color: v.$black;
+                    }
+                    width: 100%;
+                    box-sizing: border-box;
+                    padding: 48px;
+                    // height: 130px;
+                    background: v.$white;
+                    border: 1px solid #E7E7E7;
+                    border-radius: 8px;
+                    display: flex;
                     flex-direction: column;
-                    justify-content: center;
                     align-items: flex-start;
-                    gap: 4px;
-                    .title{
-                        font-weight: 600;
-                        font-size: 20px;
-                        line-height: 32px;
-                    }
-                    .description{
-                        font-weight: 400;
-                        font-size: 16px;
-                        line-height: 24px;
-                    }
-                }
-                transition: all .5s linear;
-                &.active, &:hover{
-                    .content{
+                    gap: 24px;
+                    cursor: pointer;
+                    .text{
                         display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: flex-start;
+                        gap: 4px;
+                        .title{
+                            font-weight: 600;
+                            font-size: 20px;
+                            line-height: 32px;
+                        }
+                        .description{
+                            text-decoration: none;
+                            font-weight: 400;
+                            font-size: 16px;
+                            line-height: 24px;
+                        }
                     }
-                    i{
-                        display: none;
-                    }
-                }
-                &.rag-mirsot{
-                    i{
+                    &.rag-mirsot i{
                         content: url('../utilities/images/rag-mirsot-logo.png');
-                    }
-                    &.active, &:hover{
-                        background: #2768C4;
-                        .title, .description{
-                            color: v.$white;
-                        }
-                    }
-                }    
-                &.ra-group{
-                    i{
+                    } 
+                    &.ra-group i{
                         content: url('../utilities/images/ra-group-logo.png');
-                    }
-                    &.active, &:hover{
-                        background: #0B1832;
-                        .title, .description{
-                            color: v.$white;
-                        }
-                    }
-                }                
-
+                    }      
+    
+                }
             }
         }
     }
@@ -288,25 +276,41 @@
         }
         .partners{
             width: 800px;
-            .cards{
-                flex-direction: row;
-                .card{
-                    width: auto;
-                    height: 130px;
-                    padding: 40px 48px;
-
-                    .content{                        
-                        .description{
-                            font-size: 20px;
-                            line-height: 32px;
+            .wrapper{
+                position: relative;
+                width: 100%;
+                height: 100%;
+                .scroller{
+                    left: calc((800px - 100vw) / 2);
+                    // position: absolute;
+                    // width: 100vw;
+                    height: 100%;
+                    scrollbar-width: none;
+                    -ms-overflow-style: none;
+                    overflow: visible;
+                    overflow-y: hidden;
+                    overflow-x: scroll;
+                    &::-webkit-scrollbar{
+                        display: none;
+                    }
+                    .cards{
+                        // width: auto;
+                        // margin-left: calc((100vw - 800px) /2);
+                        // margin-right: calc((100vw - 800px) / 2);
+                        flex-direction: row;
+                        .card{
+                            width: 388px;
+                            min-width: 388px;
+                            align-self: stretch;
+                            padding: 48px;
+                            .content{                        
+                                .description{
+                                    font-size: 20px;
+                                    line-height: 32px;
+                                }
+                            }
                         }
                     }
-                    transition: all .5s linear;
-                    &.active, &:hover{
-                        padding: 30px 48px;
-                        flex-grow: 1;
-                    }            
-
                 }
             }
         }

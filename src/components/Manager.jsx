@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import '../styles/Manager.scss';
 
@@ -14,6 +15,13 @@ const Manager = () => {
         else    
             setActive(name);
     }
+    
+    // useEffect(()=>{
+    //     const containerEl = document.getElementById('cards');
+    //     const height = window.getComputedStyle(containerEl).height;
+    //     const wrapper = document.getElementById('wrapper');
+    //     wrapper.style.height = height;
+    // })
 
     return (
         <div id="manager">
@@ -61,19 +69,23 @@ const Manager = () => {
             </div>
             <div className="partners">
                 <div className="title">{t('partners.title')}</div>
-                <div className="cards">
-                    <div className={`card rag-mirsot ${active==='rag-mirsot' ? 'active' : ''}`} data-name="rag-mirsot" onClick={activate}>
-                        <i></i>
-                        <div className="content">
-                            <div className="title">{t('partners.rag_mirsot.title')}</div>
-                            <div className="description">{t('partners.rag_mirsot.description')}</div>
-                        </div>
-                    </div>
-                    <div className={`card ra-group ${active==='ra-group' ? 'active' : ''}`} data-name="ra-group" onClick={activate}>
-                        <i></i>
-                        <div className="content">
-                            <div className="title">{t('partners.ra_group.title')}</div>
-                            <div className="description">{t('partners.ra_group.description')}</div>
+                <div className="wrapper" id="wrapper">
+                    <div className="scroller">
+                        <div className="cards" id="cards">
+                            <a className={`card rag-mirsot`} target="_blank" href="https://ragmirsot.com/">
+                                <i></i>
+                                <div className="text">
+                                    <div className="title">{t('partners.rag_mirsot.title')}</div>
+                                    <div className="description">{t('partners.rag_mirsot.description')}</div>
+                                </div>
+                            </a>
+                            <a className={`card ra-group`}  target="_blank" href="https://ragroup.org/">
+                                <i></i>
+                                <div className="text">
+                                    <div className="title">{t('partners.ra_group.title')}</div>
+                                    <div className="description">{t('partners.ra_group.description')}</div>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>

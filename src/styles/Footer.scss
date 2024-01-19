@@ -10,54 +10,71 @@ footer{
     gap: 8px;
     background: v.$main_black;
     box-shadow: 0px 1px 0px #E1E1E1;
-    .content{
+    .wrapper{
         width: 100%;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        padding: 0px;
         gap: 48px;
-        .logo{
-            cursor: pointer;
-            i{
-                content: url('../utilities/images/logo.svg');
+        .content{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0px;
+            gap: 48px;
+            .logo{
+                cursor: pointer;
+                i{
+                    content: url('../utilities/images/logo.svg');
+                }
+            }
+            .text{
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+                color: v.$white;
+            }
+            .contacts{
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                padding: 0px;
+                gap: 24px;
+                .icon{
+                    width: 24px;
+                    height: 24px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .whatsapp i{
+                    content: url('../utilities/icons/whatsapp-icon.svg');
+                }
+                .mail i{
+                    content: url('../utilities/icons/mail-icon.svg');
+                }
             }
         }
-        .text{
+        .dev{
             font-weight: 400;
             font-size: 16px;
             line-height: 24px;
             color: v.$white;
-        }
-        .contacts{
-            display: flex;
-            flex-direction: row;
-            align-items: flex-start;
-            padding: 0px;
-            gap: 24px;
-            .icon{
-                width: 24px;
-                height: 24px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            .whatsapp i{
-                content: url('../utilities/icons/whatsapp-icon.svg');
-            }
-            .mail i{
-                content: url('../utilities/icons/mail-icon.svg');
+            &:hover{
+                text-decoration: underline;
             }
         }
     }
     @include _lg{
         padding: 40px 0;
-        .content{
+        .wrapper{
             width: 800px;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: flex-end;
-            gap: 10px;
+            .content{
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-end;
+                gap: 10px;
+            }
         }
     }
 }
